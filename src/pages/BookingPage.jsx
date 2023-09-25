@@ -3,7 +3,12 @@ import BookingForm from './BookingForm'
 
 const BookingPage  = () => {
   return (
-    <BookingForm />
+    <section className="container">
+      <div className="table">
+        <h1>Reservation</h1>
+      </div>
+      <BookingForm />
+    </section>
   )
 }
 

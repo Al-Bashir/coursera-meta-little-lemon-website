@@ -510,6 +510,16 @@ footer .social svg{
   margin: 0;
 }
 
+/* Table Reservation */
+
+.table{
+  background-image: url(../src/assets/icons_assets/restaurant.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 380px;
+}
+
 /* Reservation page */
 
 .reservation{

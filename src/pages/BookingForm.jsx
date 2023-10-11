@@ -62,4 +62,4 @@ const BookingForm = (props) => (
   </section>
 );
 
-export default BookingForm;
+export default BookingForm

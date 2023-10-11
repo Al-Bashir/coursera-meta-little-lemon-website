@@ -5,7 +5,6 @@ import Main from './pages/Main';
 import './App.css';
 
 function App() {
-
   return (
     <Routes>
       <Route path="/" element={
@@ -15,7 +14,7 @@ function App() {
       }/>
       <Route path="/reserve-a-Table" element={
         <LayoutWrapper>
-          <BookingPage />
+          <BookingPage availableTimes={["18:00"]}/>
         </LayoutWrapper>
       } />
       <Route path="*" element={<LayoutWrapper />} />

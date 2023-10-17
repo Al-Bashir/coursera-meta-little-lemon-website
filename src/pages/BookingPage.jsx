@@ -1,38 +1,33 @@
 import React from 'react'
 import BookingForm from './BookingForm'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import {fetchAPI} from '../hooks/api';
+import ProgressSteps from './ProgressSteps'
+import { useState } from 'react'
 
 
 const BookingPage  = (props) => {
-  const [availableTimes, setAvailableTimes] = useState(null);
-  useEffect(() => {
-    if(availableTimes){
-      const getData = async() => {
-        try{
-          const response = await fetchAPI(new Date().toJSON().slice(0, 10));
-          setAvailableTimes(response);
-        }catch(e){
-          setAvailableTimes(["No available times for the selected date."]);
-          console.log(availableTimes)
-        }
-      }
-      getData();
-    }else{
-      
-    }
-  },[availableTimes])
+  const [activeStep, setActiveStep] = useState(1);
+
+  const nextStep = () => {
+    setActiveStep(activeStep + 1)
+  }
+
+  const prevStep = () => {
+    setActiveStep(activeStep - 1)
+  }
+
   return (
     <main>
-      <section className='reservation'> 
+      <section className='reservation'>
         <div className="container">
-          <h1>Book Now For A Memorable Meal</h1>
+          <div className="form-group">
+            <h1>Book Now For <br/> A Memorable Meal</h1>
+            <ProgressSteps activeStep={activeStep}/>
+            <BookingForm activeStep={activeStep} nextStep={nextStep} prevStep={prevStep} setFormResponse={props.setFormResponse}/>
+          </div>
         </div>
       </section>
-      <BookingForm availableTimes={props.availableTimes}/>
     </main>
   )
 }
 
-export default BookingPage 
+export default BookingPage
